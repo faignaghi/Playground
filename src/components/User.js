@@ -14,7 +14,9 @@ class User extends Component {
     return (
       <div>
         <ul>
-          <li>Isim : {name}</li>
+          <li>
+            Isim : {name} <i className="fa-regular fa-trash-can"></i>
+          </li>
           <li>Maas : {salary}</li>
           <li>Departman : {department}</li>
         </ul>
