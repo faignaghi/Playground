@@ -17,8 +17,14 @@ class User extends Component {
     this.onClickEvent = this.onClickEvent.bind(this);
   }
 
-  onClickEvent = (number, e) => {
-    console.log(number);
+  // onClickEvent = (number, e) => {
+  //   console.log(number);
+  // };
+
+  onClickEvent = (e) => {
+    this.setState({
+      isVisible: !this.state.isVisible,
+    });
   };
 
   // constructor(props) {
