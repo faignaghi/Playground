@@ -35,6 +35,11 @@ class User extends Component {
   //   };
   // }
 
+  onDeleteUser = (e) => {
+    const { id, deleteUser } = this.props;
+    deleteUser(id);
+  };
+
   render() {
     // Destructing
     const { name, salary, department } = this.props;
@@ -47,7 +52,11 @@ class User extends Component {
             <h4 className="d-inline" onClick={this.onClickEvent.bind(this, 34)}>
               {name}
             </h4>
-            <i className="far fa-trash-alt" style={{ cursor: "pointer" }}></i>
+            <i
+              onClick={this.onDeleteUser}
+              className="far fa-trash-alt"
+              style={{ cursor: "pointer" }}
+            ></i>
           </div>
           {isVisible ? (
             <div className="card-body">
@@ -71,6 +80,7 @@ User.propTypes = {
   name: PropTypes.string.isRequired,
   salary: PropTypes.string.isRequired,
   department: PropTypes.string.isRequired,
+  deleteUser: PropTypes.func.isRequired,
 };
 
 export default User;
