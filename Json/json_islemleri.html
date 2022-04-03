@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Document</title>
+
+    <style>
+      #kitapListesi td {
+        padding: 5px 10px;
+        border: 1px solid gray;
+      }
+    </style>
+
+    <script>
+      $(document).ready(function () {
+        var kitaplar = [
+          {
+            kitapAdi: "Türklerin Tarihi",
+            yazar: "Ilber Ortayli",
+            fiyat: 22.5,
+            baski: 17,
+          },
+          {
+            kitapAdi: "Gün Olur Asra Bedel",
+            yazar: "Cengiz Aytmatov",
+            fiyat: 18.99,
+            baski: 25,
+          },
+          {
+            kitapAdi: "Simyaci",
+            yazar: "Paolo Coelho",
+            fiyat: 12.75,
+            baski: 15,
+          },
+        ];
+        var jsonVeri = JSON.stringify(kitaplar);
+        var veri = JSON.parse(jsonVeri);
+
+        for (var i = 0; i < veri.length; i++) {
+          var satir = "<tr>";
+          satir += "<td>" + veri[i].kitapAdi + "</td>";
+          satir += "<td>" + veri[i].yazar + "</td>";
+          satir += "<td>" + veri[i].fiyat + "</td>";
+          satir += "<td>" + veri[i].baski + "</td>";
+          satir += "</tr>";
+
+          $("#kitapListesi").append(satir);
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <table id="kitapListesi" cellspacing="0">
+      <tr>
+        <td>Kitap Adi</td>
+        <td>Yazar</td>
+        <td>Fiyat</td>
+        <td>Baski</td>
+      </tr>
+    </table>
+  </body>
+</html>
